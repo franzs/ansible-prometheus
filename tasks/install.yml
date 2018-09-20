@@ -59,7 +59,7 @@
 - name: propagate prometheus and promtool binaries
   copy:
     src: "/tmp/prometheus-{{ prometheus_version }}.linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}/{{ item }}"
-    dest: "/usr/local/bin/{{ item }}"
+    dest: "{{ prometheus_bin_dir }}/{{ item }}"
     mode: 0755
     owner: root
     group: root
